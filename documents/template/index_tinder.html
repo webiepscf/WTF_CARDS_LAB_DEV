@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WTF Cards - WTF Pets - Randomize</title>
+    <link rel="icon" type="image/png" href="images/favico.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css"
+    />
+    <script src="//unpkg.com/alpinejs" defer></script>
+
+    <style>
+      .monster-card[data-monster-type="cosmique"] {
+        background: linear-gradient(to right, #6e48aa, #9d50bb);
+      }
+
+      .monster-card[data-monster-type="aquatique"] {
+        background: linear-gradient(to right, #395ca6, #546da4);
+      }
+
+      .monster-card[data-monster-type="terrestre"] {
+        background: linear-gradient(to right, #3a4146, #657581);
+      }
+
+      .monster-card[data-monster-type="volant"] {
+        background: linear-gradient(to right, #2e5063, #457791);
+      }
+
+      .monster-card[data-monster-type="spectral"] {
+        background: linear-gradient(to right, #7b195a, #9d3078);
+      }
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+      .theme-font {
+        font-family: "Lobster Two", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body class="text-white font-sans h-screen" style="background: #ec4899">
+    <!-- Header -->
+    <header class="bg-gray-800 shadow-lg fixed top-0 w-full z-40">
+      <div class="my-2 w-full">
+        <a href="#" class="flex justify-center items-center gap-4">
+          <img src="images/dogs/logo3.png" alt="WTF Cards Logo" class="h-20" />
+          <div class="theme-font text-3xl">presente</div>
+          <img src="images/dogs/logo.png" alt="WTF Pets Logo" class="h-20" />
+        </a>
+      </div>
+
+      <!-- Menu de Tri -->
+      <div
+        class="mx-auto flex justify-between md:justify-around w-full items-center px-2 mt-2 bg-gray-900 md:px-48 text-sm md:text-base"
+      >
+        <button class="text-gray-200 hover:text-white px-3 py-2 font-bold">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              d="M5.566 4.657A4.505 4.505 0 0 1 6.75 4.5h10.5c.41 0 .806.055 1.183.157A3 3 0 0 0 15.75 3h-7.5a3 3 0 0 0-2.684 1.657ZM2.25 12a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3v-6ZM5.25 7.5c-.41 0-.806.055-1.184.157A3 3 0 0 1 6.75 6h10.5a3 3 0 0 1 2.683 1.657A4.505 4.505 0 0 0 18.75 7.5H5.25Z"
+            />
+          </svg>
+        </button>
+        <button class="text-gray-500 hover:text-white px-3 py-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 inline-block hidden"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0-3.75-3.75M17.25 21 21 17.25"
+            />
+          </svg>
+          Date
+        </button>
+        <button class="text-gray-500 hover:text-white px-3 py-2">Rating</button>
+        <button class="text-gray-500 hover:text-white px-3 py-2">
+          Attaque
+        </button>
+        <button class="text-gray-500 hover:text-white px-3 py-2">
+          Défense
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="w-full pt-32">
+      <!-- Carte de l'item -->
+      <article
+        class="relative flex flex-cols w-full rounded-lg overflow-hidden"
+        style="height: calc(100vh - 13rem)"
+      >
+        <div class="flex-grow flex">
+          <!-- Image -->
+          <div class="md:order-2 md:w-3/4">
+            <img
+              src="images/dogs/dog1.webp"
+              class="w-full h-full object-cover"
+              alt="AbyssalRevenant"
+            />
+            <div class="absolute top-4 right-4 z-20">
+              <button
+                class="text-white bg-red-700 hover:bg-red-700 rounded-full p-2 transition-colors duration-300"
+                style="
+                  width: 60px;
+                  height: 60px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-8 h-8"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M6.32 2.577a49.255 49.255 0 0 1 11.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 0 1-1.085.67L12 18.089l-7.165 3.583A.75.75 0 0 1 3.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div
+              class="absolute top-0 left-0 w-full text-gray-200 flex justify-center items-center opacity-0 hover:opacity-100 cursor-pointer z-10"
+              style="background: rgba(0, 0, 0, 0.5); height: calc(100% - 5rem)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-48 h-48"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061A1.125 1.125 0 0 1 3 16.811V8.69ZM12.75 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 1 0 1.954l-7.108 4.061a1.125 1.125 0 0 1-1.683-.977V8.69Z"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Monster Details -->
+          <div
+            class="absolute bottom-0 md:static md:order-1 p-4 w-full md:w-1/4 pb-24 md:bg-transparent"
+            style="background: rgba(0, 0, 0, 0.5)"
+          >
+            <h3 class="text-3xl font-bold theme-font">Gregor</h3>
+            <div class="text-sm text-gray-300 mb-4">
+              <span>Type: Terrestre</span> -
+              <a href="#" class="text-red-400 hover:underline">Alex Smith</a>
+            </div>
+            <p class="text-gray-300 text-xl">
+              Un monstre terrifiant des hautes forêts du Nord.
+            </p>
+            <!-- Monster Stats -->
+            <div
+              class="mt-4 absolute bottom-64 md:bottom-24 right-4 p-2 rounded shadow-lg"
+              style="background: rgba(0, 0, 0, 0.7)"
+            >
+              <div class="text-red-500">PA: 120</div>
+              <div class="text-green-500">PD: 80</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Likes -->
+        <footer>
+          <div class="absolute bottom-0 left-0 flex justify-center w-full">
+            <div class="flex items-center w-1/2">
+              <a
+                href="#"
+                class="block w-full h-20 bg-red-900 text-red-600 hover:bg-red-500 flex justify-center items-center shadow-lg"
+              >
+                <div class="text-3xl mr-2">120</div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-12 h-12 inline"
+                >
+                  <path
+                    d="M15.73 5.5h1.035A7.465 7.465 0 0 1 18 9.625a7.465 7.465 0 0 1-1.235 4.125h-.148c-.806 0-1.534.446-2.031 1.08a9.04 9.04 0 0 1-2.861 2.4c-.723.384-1.35.956-1.653 1.715a4.499 4.499 0 0 0-.322 1.672v.633A.75.75 0 0 1 9 22a2.25 2.25 0 0 1-2.25-2.25c0-1.152.26-2.243.723-3.218.266-.558-.107-1.282-.725-1.282H3.622c-1.026 0-1.945-.694-2.054-1.715A12.137 12.137 0 0 1 1.5 12.25c0-2.848.992-5.464 2.649-7.521C4.537 4.247 5.136 4 5.754 4H9.77a4.5 4.5 0 0 1 1.423.23l3.114 1.04a4.5 4.5 0 0 0 1.423.23ZM21.669 14.023c.536-1.362.831-2.845.831-4.398 0-1.22-.182-2.398-.52-3.507-.26-.85-1.084-1.368-1.973-1.368H19.1c-.445 0-.72.498-.523.898.591 1.2.924 2.55.924 3.977a8.958 8.958 0 0 1-1.302 4.666c-.245.403.028.959.5.959h1.053c.832 0 1.612-.453 1.918-1.227Z"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div class="flex items-center w-1/2">
+              <a
+                href="#"
+                class="block w-full h-20 bg-green-500 text-white hover:bg-green-500 flex justify-center items-center shadow-lg relative"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-12 h-12 inline"
+                >
+                  <path
+                    d="M7.493 18.5c-.425 0-.82-.236-.975-.632A7.48 7.48 0 0 1 6 15.125c0-1.75.599-3.358 1.602-4.634.151-.192.373-.309.6-.397.473-.183.89-.514 1.212-.924a9.042 9.042 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V2.75A.75.75 0 0 1 15 2a2.25 2.25 0 0 1 2.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H14.23c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 0 0-1.423-.23h-.777ZM2.331 10.727a11.969 11.969 0 0 0-.831 4.398 12 12 0 0 0 .52 3.507C2.28 19.482 3.105 20 3.994 20H4.9c.445 0 .72-.498.523-.898a8.963 8.963 0 0 1-.924-3.977c0-1.708.476-3.305 1.302-4.666.245-.403-.028-.959-.5-.959H4.25c-.832 0-1.612.453-1.918 1.227Z"
+                  />
+                </svg>
+                <div class="text-3xl ml-2">121</div>
+              </a>
+            </div>
+          </div>
+        </footer>
+      </article>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="bg-gray-900 text-gray-300 px-4 pt-2 pb-4 fixed bottom-0 w-full"
+    >
+      <!-- Menu footer -->
+      <div class="flex justify-between items-center pb-1 container mx-auto">
+        <button class="text-gray-300 hover:text-white px-3 py-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z"
+            />
+            <path
+              d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z"
+            />
+          </svg>
+        </button>
+        <button class="text-gray-500 hover:text-white px-3 py-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.166 2.621v.858c-1.035.148-2.059.33-3.071.543a.75.75 0 0 0-.584.859 6.753 6.753 0 0 0 6.138 5.6 6.73 6.73 0 0 0 2.743 1.346A6.707 6.707 0 0 1 9.279 15H8.54c-1.036 0-1.875.84-1.875 1.875V19.5h-.75a2.25 2.25 0 0 0-2.25 2.25c0 .414.336.75.75.75h15a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-2.25-2.25h-.75v-2.625c0-1.036-.84-1.875-1.875-1.875h-.739a6.706 6.706 0 0 1-1.112-3.173 6.73 6.73 0 0 0 2.743-1.347 6.753 6.753 0 0 0 6.139-5.6.75.75 0 0 0-.585-.858 47.077 47.077 0 0 0-3.07-.543V2.62a.75.75 0 0 0-.658-.744 49.22 49.22 0 0 0-6.093-.377c-2.063 0-4.096.128-6.093.377a.75.75 0 0 0-.657.744Zm0 2.629c0 1.196.312 2.32.857 3.294A5.266 5.266 0 0 1 3.16 5.337a45.6 45.6 0 0 1 2.006-.343v.256Zm13.5 0v-.256c.674.1 1.343.214 2.006.343a5.265 5.265 0 0 1-2.863 3.207 6.72 6.72 0 0 0 .857-3.294Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <button class="text-gray-500 hover:text-white px-3 py-2 relative">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-16 h-16 -top-12 -left-5 md:w-24 md:h-24 md:-left-8 md:-top-20 absolute shadow-lg bg-gray-200 hover:bg-red-500 rounded-full"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <button class="text-gray-500 hover:text-white px-3 py-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M6.32 2.577a49.255 49.255 0 0 1 11.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 0 1-1.085.67L12 18.089l-7.165 3.583A.75.75 0 0 1 3.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <button class="text-gray-500 hover:text-white px-3 py-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Copyright -->
+      <div class="container mx-auto text-center text-xs text-gray-500">
+        <p>&copy; 2024 WTF Cards. Tous droits réservés.</p>
+      </div>
+    </footer>
+  </body>
+</html>
