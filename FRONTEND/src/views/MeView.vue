@@ -1,8 +1,19 @@
-<script setup></script>
+<script setup>
+import { onMounted, ref } from "vue";
+import { useUserStore } from "@/stores/userStore";
+
+const userStore = useUserStore(); // Utilisez le store
+const user = ref(null);
+
+onMounted(async () => {
+  await userStore.getUser();
+  user.value = userStore.user;
+});
+</script>
 
 <template>
   <main>
-    <h1>Me View</h1>
-    <p>Hello Alex Smith</p>
+    <div v-if="user">{{ user.name }}</div>
+    <div v-else>Chargement...</div>
   </main>
 </template>

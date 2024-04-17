@@ -1,20 +1,37 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import { useAuthStore } from "@/stores/authStore";
+
+const formData = ref({
+  email: "",
+  password: "",
+});
+
+const authStore = useAuthStore(); // Utilisez le store
+
+const login = async () => {
+  await authStore.login(formData.value);
+};
+</script>
 
 <template>
   <main>
-    <h1>Login View</h1>
-    <form>
+    <form action="" @submit.prevent="login">
       <div>
-        <label>
-          <input type="email" placeholder="alex.smith@gmail.com" required />
+        <label for="">
+          <input type="email" placeholder="Email" v-model="formData.email" />
         </label>
       </div>
       <div>
-        <label>
-          <input type="password" placeholder="Your password" required />
+        <label for="">
+          <input
+            type="password"
+            placeholder="Password"
+            v-model="formData.password"
+          />
         </label>
       </div>
-      <div><input type="submit" /></div>
+      <div><input type="submit" value="Login" /></div>
     </form>
   </main>
 </template>
