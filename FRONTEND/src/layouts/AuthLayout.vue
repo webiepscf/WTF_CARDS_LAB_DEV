@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <h1>Auth Layout</h1>
+      <h1 class="text-red-500 text-3xl">Auth Layout</h1>
     </header>
     <main>
       <slot></slot>
