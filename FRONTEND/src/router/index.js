@@ -14,19 +14,19 @@ const router = createRouter({
       path: '',
       name: 'home',
       component: LoginView,
-      meta: { layout: 'auth', requiresGuest: true}
+      meta: { layout: 'auth', guestOnly: true}
     },
     {
       path: '/login',
       name: 'login',
       component: LoginView,
-      meta: { layout: 'auth', requiresGuest: true}
+      meta: { layout: 'auth', guestOnly: true}
     },
     {
       path: '/register',
       name: 'register',
       component: () => import('../views/RegisterView.vue'),
-      meta: { layout: 'auth', requiresGuest: true}
+      meta: { layout: 'auth', guestOnly: true}
     },
     {
       path: '/logout',
@@ -51,19 +51,18 @@ const router = createRouter({
   ]
 })
 
-// Protection des routes
+// Protection des routes: Middleware Front
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore();
-  if (to.matched.some(record => record.meta.requiresAuth) && !authStore.isAuthenticated) {
+  if (to.meta.requiresAuth && !authStore.isAuthenticated) {
     next('/login');
   } 
-  else if (to.matched.some(record => record.meta.requiresGuest) && authStore.isAuthenticated){
+  else if (to.meta.guestOnly && authStore.isAuthenticated){
     next('/dashboard');
   }
   else {
     next();
   }
 });
-
 
 export default router
