@@ -20,3 +20,9 @@ const layoutComponent = computed(() => {
     <router-view />
   </component>
 </template>
+
+<style>
+body {
+  font-family: "Roboto", sans-serif;
+}
+</style>

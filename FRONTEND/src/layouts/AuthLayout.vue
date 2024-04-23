@@ -1,14 +1,24 @@
 <template>
-  <div>
-    <header>
-      <h1 class="text-red-500 text-3xl">Auth Layout</h1>
-    </header>
-    <main>
+  <div
+    class="text-center text-white font-sans flex w-screen h-screen justify-center items-center gap-4 text-sm"
+    style="
+      background: rgb(181, 223, 85);
+      background: radial-gradient(
+        circle,
+        rgba(181, 223, 85, 1) 0%,
+        rgba(0, 100, 167, 1) 100%
+      );
+    "
+  >
+    <div>
+      <div class="mb-8">
+        <img
+          src="../assets/wtf_logo.png"
+          alt="WTF Cards Logo"
+          class="h-28 inline opacity-90"
+        />
+      </div>
       <slot></slot>
-    </main>
-    <footer>
-      <hr />
-      &copy;EAFC 2024
-    </footer>
+    </div>
   </div>
 </template>

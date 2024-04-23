@@ -15,23 +15,42 @@ const login = async () => {
 </script>
 
 <template>
-  <main>
-    <form action="" @submit.prevent="login">
-      <div>
-        <label for="">
-          <input type="email" placeholder="Email" v-model="formData.email" />
-        </label>
-      </div>
-      <div>
+  <div>
+    <form @submit.prevent="login">
+      <div class="mb-3">
         <label for="">
           <input
-            type="password"
-            placeholder="Password"
-            v-model="formData.password"
+            type="email"
+            placeholder="alex.doe@gmail.com"
+            v-model="formData.email"
+            class="px-4 py-1 w-full rounded bg-gray-600"
           />
         </label>
       </div>
-      <div><input type="submit" value="Login" /></div>
+      <div class="mb-3">
+        <label for="">
+          <input
+            type="password"
+            placeholder="●●●●●●●●"
+            v-model="formData.password"
+            class="px-4 py-1 w-full rounded bg-gray-600"
+          />
+        </label>
+      </div>
+      <div>
+        <input
+          type="submit"
+          value="Se connecter"
+          class="px-4 py-1 bg-emerald-600 hover:bg-emerald-700 rounded w-full"
+        />
+      </div>
     </form>
-  </main>
+    <div class="mt-8">
+      <RouterLink
+        to="/register"
+        class="hover:underline text-gray-200 hover:text-gray-50"
+        >S'enregistrer</RouterLink
+      >
+    </div>
+  </div>
 </template>
