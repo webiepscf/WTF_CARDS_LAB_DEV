@@ -13,7 +13,7 @@
     <div>
       <div class="mb-8">
         <img
-          src="../assets/wtf_logo.png"
+          src="@/assets/wtf_logo.png"
           alt="WTF Cards Logo"
           class="h-28 inline opacity-90"
         />

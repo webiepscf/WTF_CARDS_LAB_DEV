@@ -1,40 +1,43 @@
-<script setup>
-import { ref, reactive } from "vue";
-import { useAuthStore } from "@/stores/authStore";
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WTF Cards - WTF Pets</title>
+    <link rel="icon" type="image/png" href="images/favico.png" />
 
-const authStore = useAuthStore(); // Utilisez le store
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css"
+    />
+    <script src="//unpkg.com/alpinejs" defer></script>
 
-const logout = async () => {
-  await authStore.logout();
-};
-
-const theme_params = reactive({
-  color: "#ec4899",
-  font: "Lobster, cursive",
-});
-
-// État pour gérer l'affichage du dropdown
-const isDropdownOpen = ref(false);
-
-// Fonction pour basculer l'état du dropdown
-const toggleDropdown = () => {
-  isDropdownOpen.value = !isDropdownOpen.value;
-};
-</script>
-<template>
-  <div
-    class="text-white font-sans min-h-screen"
-    :style="{ backgroundColor: theme_params.color }"
-  >
+    
+      .theme-font {
+        font-family: "Lobster Two", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body class="text-white font-sans h-screen" style="background: #ec4899">
     <!-- Header -->
     <header class="bg-gray-800 shadow-lg fixed top-0 w-full z-40">
       <div class="my-2 w-full">
         <a href="#" class="flex justify-center items-center gap-4">
-          <img src="@/assets/wtf_logo.png" alt="WTF Cards Logo" class="h-20" />
-          <div class="text-3xl" :style="{ fontFamily: theme_params.font }">
-            présente
-          </div>
-          <img src="@/assets/logo_theme.png" alt="WTF Pets Logo" class="h-20" />
+          <img src="images/dogs/logo3.png" alt="WTF Cards Logo" class="h-20" />
+          <div class="theme-font text-3xl">presente</div>
+          <img src="images/dogs/logo.png" alt="WTF Pets Logo" class="h-20" />
         </a>
       </div>
 
@@ -83,7 +86,7 @@ const toggleDropdown = () => {
 
     <!-- Main Content -->
     <main class="w-full pt-32">
-      <slot></slot>
+      
     </main>
 
     <!-- Footer -->
@@ -121,13 +124,12 @@ const toggleDropdown = () => {
             />
           </svg>
         </button>
-        <button class="text-gray-300 hover:text-white px-3 py-2 relative">
+        <button class="text-gray-500 hover:text-white px-3 py-2 relative">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
-            class="w-16 h-16 -top-12 -left-5 md:w-24 md:h-24 md:-left-8 md:-top-20 absolute bg-gray-50 rounded-full"
-            :style="'background: ' + theme_params.color"
+            class="w-16 h-16 -top-12 -left-5 md:w-24 md:h-24 md:-left-8 md:-top-20 absolute shadow-lg bg-gray-200 hover:bg-red-500 rounded-full"
           >
             <path
               fill-rule="evenodd"
@@ -150,41 +152,20 @@ const toggleDropdown = () => {
             />
           </svg>
         </button>
-        <v-menu location="top">
-          <template v-slot:activator="{ props }">
-            <button
-              v-bind="props"
-              class="text-gray-500 hover:text-white px-3 py-2"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="w-6 h-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </button>
-          </template>
-
-          <v-list>
-            <v-list-item>
-              <v-list-item-title>Mon profil</v-list-item-title>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-title>Mon deck</v-list-item-title>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-title>
-                <a href="#" @click.prevent="logout">Me déconnecter</a>
-              </v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
+        <button class="text-gray-500 hover:text-white px-3 py-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
       </div>
 
       <!-- Copyright -->
@@ -192,9 +173,5 @@ const toggleDropdown = () => {
         <p>&copy; 2024 WTF Cards. Tous droits réservés.</p>
       </div>
     </footer>
-  </div>
-</template>
-
-<style>
-@import url("https://fonts.googleapis.com/css2?family=Lobster,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-</style>
+  </body>
+</html>

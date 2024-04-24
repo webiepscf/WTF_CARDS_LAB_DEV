@@ -5,7 +5,7 @@ export default {
   darkMode: false, 
   theme: {
     fontFamily: {
-      sans: ['Trebuchet MS', 'sans-serif'],
+      sans: ['Roboto', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
     },
     extend: {},
